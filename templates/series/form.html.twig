@@ -1,14 +1,10 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nova Série{% endblock %}
+{% block title %}{{ series is defined ? 'Editar' : 'Nova' }} Série{% endblock %}
 
 {% block body %}
-    <form method="post">
-        <div class="mb-3">
-            <label for="name" class="form-label">Nome da série:</label>
-            <input type="text" name="name" id="name" class="form-control">
-        </div>
-
-        <button class="btn btn-dark">Adicionar</button>
-    </form>
+    {{ form_start(seriesForm) }}
+    {{ form_row(seriesForm.name) }}
+    {{ form_widget(seriesForm.save, {'attr': {'class': 'btn-dark'}}) }}
+    {{ form_end(seriesForm) }}
 {% endblock %}

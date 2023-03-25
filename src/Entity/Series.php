@@ -23,7 +23,7 @@ class Series
     #[ORM\Column(type: Types::DECIMAL, precision: 10, scale: '0', nullable: true)]
     private ?string $status = null;
 
-    public function __construct($name)
+    public function __construct($name= '')
     {
         $this->name = $name;
     }
